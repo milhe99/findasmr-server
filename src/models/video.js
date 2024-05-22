@@ -20,10 +20,13 @@ Video.init({
     allowNull: false,
     unique: true,
   },
+  video_thumbnail: {
+    type: DataTypes.STRING(255),
+  },
   asmrist: {
     type: DataTypes.INTEGER,
     references: {
-      model: 'asmrist',
+      model: 'Asmrist',
       key: 'asmrist_id',
     },
     onUpdate: 'CASCADE',
@@ -43,6 +46,27 @@ Video.init({
   tableName: 'video',
   timestamps: false,
   underscored: true,
+  hooks: {
+    beforeCreate: (video) => {
+      video.created_at = new Date();
+      video.updated_at = new Date();
+
+      const url = this.getDataValue('url');
+      const videoId = url.split('v=')[1];
+      if (videoId) {
+        video.video_thumbnail = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+      }
+    },
+    beforeUpdate: (video) => {
+      video.updated_at = new Date();
+
+      const url = this.getDataValue('url');
+      const videoId = url.split('v=')[1];
+      if (videoId) {
+        video.video_thumbnail = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+      }
+    }
+  }
 });
 
 module.exports = Video;

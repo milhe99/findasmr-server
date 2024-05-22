@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../../app');
+const sequelize = require('../../db');
 
 const Trigger = require('./trigger');
 const Video = require('./video');
