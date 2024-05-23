@@ -9,16 +9,6 @@ Asmrist.init({
     autoIncrement: true,
     primaryKey: true,
   },
-  user_id: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'app_user',
-      key: 'user_id',
-    },
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE',
-    allowNull: true,
-  },
   name: {
     type: DataTypes.STRING(255),
     unique: true,

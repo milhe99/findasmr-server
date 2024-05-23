@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 // Connect to the database
-const sequelize = new Sequelize('postgres://postgres:test@localhost:5432/findasmr');
+const sequelize = new Sequelize('postgres://postgres:test@localhost:5432/test_asmr_script');
 
 // Check the database connection
 const checkDBStatus = async () => {

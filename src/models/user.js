@@ -17,6 +17,7 @@ AppUser.init({
   passwordHash: {
     type: DataTypes.STRING(255),
     allowNull: false,
+    field: 'passwordhash',
   },
   email: {
     type: DataTypes.STRING(255),

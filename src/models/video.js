@@ -51,7 +51,7 @@ Video.init({
       video.created_at = new Date();
       video.updated_at = new Date();
 
-      const url = this.getDataValue('url');
+      const url = video.url;
       const videoId = url.split('v=')[1];
       if (videoId) {
         video.video_thumbnail = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
@@ -60,7 +60,7 @@ Video.init({
     beforeUpdate: (video) => {
       video.updated_at = new Date();
 
-      const url = this.getDataValue('url');
+      const url = video.url;
       const videoId = url.split('v=')[1];
       if (videoId) {
         video.video_thumbnail = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;

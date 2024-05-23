@@ -26,5 +26,6 @@ app.use('/api/search', require('./src/routes/search-routes'));
 app.use('/api/categoryvideos', require('./src/routes/category-video-routes'));
 app.use('/api/tagvideos', require('./src/routes/tag-video-routes'));
 app.use('/api/triggervideos', require('./src/routes/trigger-video-routes'));
+app.use('/api/uservideos', require('./src/routes/user-video-routes'));
 
 module.exports = app;
